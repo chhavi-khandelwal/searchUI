@@ -1,0 +1,3 @@
+export const SUGGEST = 'SUGGEST';
+export const FILTER = 'FILTER';
+export const RESETSUGGESTIONLIST = 'RESETSUGGESTIONLIST';

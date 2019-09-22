@@ -1,0 +1,42 @@
+@import '../../styles/_mixins.scss';
+@import '../../styles/_variables.scss';
+@import '../../styles/_placeholders.scss';
+
+.search__list {
+  @extend %flex;
+  flex-direction: column;
+  border: 1px solid $color-gray-light;
+  background-color: $color-white;
+  position: absolute;
+  top: 55px;
+  width: 100%;
+  z-index: 10;
+  border-radius: 0 0 $border-radius-unit $border-radius-unit;
+  box-shadow: 0 3px 4px 0 $color-gray;
+
+  &__item {
+    width: 100%;
+    padding: $base-spacing-unit;
+    border-bottom: 1px solid $color-gray-light;
+    cursor: pointer;
+    color: $color-gray-darker;
+
+
+    a {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      color: inherit;
+    }
+   
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background-color: $color-gray-light;
+      color: $color-gray-dark;
+    }
+  }
+}

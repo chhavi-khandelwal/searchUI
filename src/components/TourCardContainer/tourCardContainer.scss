@@ -1,0 +1,11 @@
+@import '../../styles/_mixins.scss';
+@import '../../styles/_variables.scss';
+@import '../../styles/_placeholders.scss';
+
+.tile__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-auto-rows: minmax(400px, auto);
+  grid-gap: 3em 1em;
+  padding-top: 2 * $base-spacing-unit;
+}
