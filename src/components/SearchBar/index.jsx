@@ -3,46 +3,51 @@ import './searchBar.scss';
 import AutoSuggestList from '../AutoSuggestList';
 import { connect } from "react-redux";
 import { suggestBy, filteredTours } from '../../redux/actions';
-import { TopTourSearchListNumber } from '../../shared/constants/tour';
 import { debounce } from '../../shared/utils/helpers';
+import { getTopTourList } from '../../shared/utils/tour';
 
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = { value: '' };
+    this.searchString = ''
   }
 
   updateInput = value => {
     this.setState({ value });
+    //opens suggest list
     this.props.suggestBy(value);
   };
 
-  getFilteredTours = () => {
+  getFilteredTours = (e) => {
+    e.preventDefault();
+    //stop multiple re rendering
+    if (this.searchString === this.state.value) { return; }
     this.props.filteredTours(this.state.value);
+    this.searchString = this.state.value;
   }
 
   render() {
     return (
       <div className="search__bar">
-        <div className="search__bar__input-wrapper">
+        <form className="search__bar__input-wrapper">
           <input
             type="text"
             onChange={ e => debounce(this.updateInput(e.target.value), 100) }
             value={ this.state.value  }/>
-          <span
+          <button
+            type="submit"
             className="icon--search"
-            onClick={ () => this.getFilteredTours() }>
-          </span>
+            onClick={ (e) => this.getFilteredTours(e) }>
+          </button>
           {!!this.props.suggestList.length &&
             <AutoSuggestList suggestList={ this.props.suggestList }></AutoSuggestList>
           }
-        </div>
+        </form>
       </div>
     )
   }
 }
-
-const getTopTourList = (tours) => tours.slice(0, TopTourSearchListNumber);
 
 const mapStateToProps = state => {
   return { suggestList: getTopTourList(state.Search.suggestList) };

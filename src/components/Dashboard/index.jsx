@@ -3,7 +3,8 @@ import './dashboard.scss';
 import TileContainer from '../TourCardContainer';
 import SearchBar from '../SearchBar';
 import { connect } from "react-redux";
-import { resetSuggestionList } from "../../redux/actions";
+import { resetSuggestionList } from '../../redux/actions';
+import { NORESULTSTRING } from '../../shared/constants/tour';
 
 class Dashboard extends React.Component {
   render() {
@@ -11,7 +12,7 @@ class Dashboard extends React.Component {
       <div className="dashboard" onClick={ this.props.resetSuggestionList }>
         <SearchBar></SearchBar>
         {
-          !this.props.tours.length && <div className="no-show">Sorry! No results found.</div>
+          !this.props.tours.length && <div className="no-show">{ NORESULTSTRING }</div>
         }
         <TileContainer tours={ this.props.tours }></TileContainer>
       </div>
@@ -19,6 +20,7 @@ class Dashboard extends React.Component {
   }
 }
 
+//update props to re-render
 const mapStateToProps = state => {
   return { tours: state.Search.tours };
 };

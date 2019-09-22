@@ -1,6 +1,5 @@
-@import '../../styles/_mixins.scss';
-@import '../../styles/_variables.scss';
-@import '../../styles/_placeholders.scss';
+@import '../../shared/styles/_variables.scss';
+@import '../../shared/styles/_placeholders.scss';
 
 .dashboard {
   padding: 2 * $base-spacing-unit;

@@ -1,6 +1,6 @@
-@import '../../styles/_mixins.scss';
-@import '../../styles/_variables.scss';
-@import '../../styles/_placeholders.scss';
+@import '../../shared/styles/_mixins.scss';
+@import '../../shared/styles/_variables.scss';
+@import '../../shared/styles/_placeholders.scss';
 
 .tile {
   width: 300px;
@@ -11,7 +11,7 @@
   transform: scale(1);
   transition: transform 0.5s;
   cursor: pointer;
-  @include anim-size-fade-in(0, 300px, 0, auto);
+  @include anim-size-fade-in(0, 300px);
   animation: sizeFadeIn 1s ease-in-out;
   border-radius: $border-radius-unit $border-radius-unit 0 0;
 
@@ -85,6 +85,7 @@
         @extend %flex;
         font-size: $font-normal;
         font-weight: $weight-bold;
+        color: $color-gray-dark;
     
         &__currency {
           margin-right: $base-spacing-unit / 5;
@@ -110,16 +111,16 @@
 
   &__offer {
     @extend %flex;
-    font-size: $font-small;
+    font-size: $font-basic;
     color: $color-white;
     position: absolute;
     left: 0;
     top: 20px;
     background-color: $color-red;
-    width: 50px;
-    height: 10px;
+    width: 60px;
+    height: 30px;
     padding: $base-spacing-unit / 2;
-    font-weight: bold;
+    font-weight: $weight-bolder;
 
     &:after {
       content: '';
@@ -129,8 +130,8 @@
       display: block;
       width: 0;
       height: 0;
-      border-top: 10px solid;
-      border-bottom: 10px solid;
+      border-top: 15px solid;
+      border-bottom: 15px solid;
       border-right: 5px solid transparent;
       color: $color-red;
     }

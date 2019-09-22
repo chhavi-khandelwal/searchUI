@@ -25,13 +25,7 @@ class AutoSuggestList extends React.Component {
   }
 };
 
-const getTopTourList = (tours) => tours.slice(0, 5);
-
-const mapStateToProps = state => {
-  return { suggestList: getTopTourList(state.Search.suggestList) };
-};
-
 export default connect(
-  mapStateToProps,
+  null,
   { filteredTours }
 )(AutoSuggestList);

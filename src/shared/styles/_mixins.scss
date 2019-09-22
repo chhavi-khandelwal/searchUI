@@ -1,4 +1,4 @@
-@mixin anim-size-fade-in($wMin, $wMax, $hMin, $hMax) {
+@mixin anim-size-fade-in($wMin, $wMax) {
   @keyframes sizeFadeIn {
     0% {
       opacity: 0;

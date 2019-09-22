@@ -1,3 +1,11 @@
+import { TopTourSearchListNumber } from '../../shared/constants/tour';
+
+/**
+ * get list of strings for auto complete dropdown
+ * @param {searchString} string = to compare and search based on it
+ * @param {initialState} object = initial State of project
+ * returns array
+*/
 export const getSuggestionListBy = (searchString, initialState) => {
   return initialState.tours.reduce((list, tour) => {
     const title = tour.title.toLowerCase();
@@ -12,6 +20,13 @@ export const getSuggestionListBy = (searchString, initialState) => {
   }, []);
 }
 
+/**
+ * get filtered tours based on search string
+ * @param {searchString} string = to compare and search based on it
+ * @param {id} number = id of tour selected to be shown
+ * @param {initialState} object = initial State of project
+ * returns array
+*/
 export const getFilteredTours = (searchString, id, initialState) => {
   let tours = [];
   for (let i = 0; i < initialState.tours.length; i++) {
@@ -30,6 +45,11 @@ export const getFilteredTours = (searchString, id, initialState) => {
   return tours;
 }
 
+/**
+ * get array of ratings to plot stars
+ * @param {points} number = rating
+ * returns array
+*/
 export const getRating = points => {
   let stars = [], gold = true;
   const maxRating = 5;
@@ -39,3 +59,10 @@ export const getRating = points => {
   }
   return stars;
 }
+
+/**
+ * get top 5 tours based on search string
+ * @param {tours} array = tours associated with search string
+ * returns array
+*/
+export const getTopTourList = (tours) => tours.slice(0, TopTourSearchListNumber);

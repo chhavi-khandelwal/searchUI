@@ -3,7 +3,7 @@ import Tile from '../TourCard';
 import './tourCardContainer.scss';
 
 const TourCardContainer = props => {
-  //
+  //create randomkey to recreate cards
   const randomKey = (new Date()).getTime();
   return (
     <ul className="tile__container">

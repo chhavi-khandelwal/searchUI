@@ -1,6 +1,4 @@
-@import '../../styles/_mixins.scss';
-@import '../../styles/_variables.scss';
-@import '../../styles/_placeholders.scss';
+@import '../../shared/styles/_variables.scss';
 
 .search__bar {
   margin: $base-spacing-unit * 2 $base-spacing-unit / 2;
@@ -19,11 +17,12 @@
       transition: right 0.5s;
       cursor: pointer;
       padding: $base-spacing-unit;
+      border: none;
+      outline: none;
 
       &:hover {
         background: url('../../assets/images/icon-search-dark.svg') center no-repeat;
         background-size: 40%;
-
       }
     }
 
